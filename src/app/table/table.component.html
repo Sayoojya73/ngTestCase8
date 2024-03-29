@@ -1,0 +1,29 @@
+<div class="container">
+<button type="button" class="btn btn-primary" (click)="toggleTable()" style="margin: 60px;">Show Employee Data</button>
+ 
+<div *ngIf="showTable" style="margin: 30px;">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th [ngClass]="{'col-one-colored': colOneColor}">Name</th>
+        <th [ngClass]="{'col-two-colored': colTwoColor}">Title</th>
+        <th [ngClass]="{'col-three-colored': colThreeColor}">Status</th>
+        <th [ngClass]="{'col-four-colored': colFourColor}">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of tableData">
+        <td [ngClass]="{'col-one-colored': colOneColor}">{{ data.name }}</td>
+        <td [ngClass]="{'col-two-colored': colTwoColor}">{{ data.title }}</td>
+        <td [ngClass]="{'col-three-colored': colThreeColor}">{{ data.status }}</td>
+        <td [ngClass]="{'col-four-colored': colFourColor}">{{ data.position }}</td>
+      </tr>
+      <tr>
+        <td><button type="button" class="col-one btn btn-primary" (click)="changeColumnColor('col-one')">Highlight Names</button></td>
+        <td><button type="button" class="col-two btn btn-success" (click)="changeColumnColor('col-two')">Highlight Title</button></td>
+        <td><button type="button" class="col-three btn btn-warning" (click)="changeColumnColor('col-three')">Highlight Status</button></td>
+        <td><button type="button" class="col-four btn btn-danger" (click)="changeColumnColor('col-four')">Highlight Positions</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
